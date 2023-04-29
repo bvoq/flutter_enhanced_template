@@ -1,0 +1,58 @@
+name: myapp
+description: My new Flutter app
+version: 1.0.0+1
+publish_to: none
+
+environment:
+  sdk: ">=2.18.0 <3.0.0"
+
+dependencies:
+  connectivity_plus: ^3.0.3
+  firebase_core: ^2.9.0
+  firebase_crashlytics: ^3.1.0
+  flutter:
+    sdk: flutter
+  flutter_bloc: ^8.1.2
+  flutter_localizations:
+    sdk: flutter
+  flutter_riverpod: ^2.3.5
+  flutter_secure_storage: ^8.0.0
+  flutter_web_plugins:
+    sdk: flutter
+  go_router: ^6.5.8
+  internet_connection_checker: ^1.0.0+1
+  intl: ^0.17.0
+  stack_trace: ^1.11.0
+
+dev_dependencies:
+  flutter_flavorizr: ^2.1.5
+  flutter_test:
+    sdk: flutter
+  mocktail: ^0.3.0
+  very_good_analysis: ^3.1.0
+
+flutter:
+  uses-material-design: true
+  generate: true
+
+flavorizr:
+  # Unfortunately, the plugin doesn't support for generating run configurations for Android Studio *and* vscode at the same time.
+  ide: "vscode" # or "idea". Change this to your IDE to regenerate the run configurations.
+  flavors:
+    stage:
+      app:
+        name: "myapp STAGE"
+        icon: "assets/app_icons/app_icon_clone.png"
+      android:
+        applicationId: "ch.dekeyser.myapp"
+      ios:
+        bundleId: "ch.dekeyser.myapp"
+
+    prod:
+      app:
+        name: "myapp"
+        icon: "assets/app_icons/app_icon.png"
+      android:
+        applicationId: "ch.dekeyser.myapp"
+      ios:
+        bundleId: "ch.dekeyser.myapp"

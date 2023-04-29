@@ -1,0 +1,11 @@
+{
+    "@@locale": "en",
+    "account_page_enable_developer_analytics": "Developer analytics",
+    "account_page_enable_developer_analytics_description": "This will help us to improve the app.",
+    "account_page_enable_high_contrast": "High contrast",
+    "account_page_enable_high_contrast_description": "This will help you to see the app better.",
+    "account_page_theme_dark": "Dark",
+    "account_page_theme_description": "Select the app's theme:",
+    "account_page_theme_light": "Light",
+    "account_page_theme_system": "System"
+}

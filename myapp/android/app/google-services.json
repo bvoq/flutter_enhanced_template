@@ -1,0 +1,82 @@
+{
+  "project_info": {
+    "project_number": "586118557892",
+    "project_id": "dekeyser-d33a7",
+    "storage_bucket": "dekeyser-d33a7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:586118557892:android:8b43d275c61a855f201991",
+        "android_client_info": {
+          "package_name": "ch.dekeyser.myapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "586118557892-pencv75rqhnppluh2c3epf5c0tf1srq7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDCaE3ZAJej2X3OjFm8I6DsCxj-9K_1FeM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "586118557892-pencv75rqhnppluh2c3epf5c0tf1srq7.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "586118557892-k6rhbl9kdfd1lvd777b54hpjamhbbomu.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "ch.dekeyser.myapp"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:586118557892:android:2cc566444b42576a201991",
+        "android_client_info": {
+          "package_name": "com.juice.booster3"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "586118557892-pencv75rqhnppluh2c3epf5c0tf1srq7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDCaE3ZAJej2X3OjFm8I6DsCxj-9K_1FeM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "586118557892-pencv75rqhnppluh2c3epf5c0tf1srq7.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "586118557892-k6rhbl9kdfd1lvd777b54hpjamhbbomu.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "ch.dekeyser.myapp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
