@@ -3,8 +3,7 @@ import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:myapp/firebase_options_production.dart'
-    as firebase_options_production;
+import 'package:myapp/firebase_options_production.dart' as firebase_options_production;
 import 'package:myapp/router.dart';
 import 'package:myapp/setup/pre_router_widget.dart';
 import 'package:stack_trace/stack_trace.dart' as stack_trace;
@@ -18,8 +17,7 @@ void main() async {
   );
 
   // always opt-in to debug parameters in production?
-  await FirebaseCrashlytics.instance
-      .setCrashlyticsCollectionEnabled(kReleaseMode);
+  await FirebaseCrashlytics.instance.setCrashlyticsCollectionEnabled(kReleaseMode);
 
   FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterFatalError;
   FlutterError.demangleStackTrace = (StackTrace stack) {
@@ -32,8 +30,8 @@ void main() async {
     stack_trace.Chain.capture(
       () {
         runApp(
-          PreRouterWidget(
-            initialRoute: Routes.dashboardAccount.path,
+          const PreRouterWidget(
+            initialRoute: DashboardAccountRouteData.path,
           ),
         );
       },
@@ -44,8 +42,8 @@ void main() async {
     );
   } else {
     runApp(
-      PreRouterWidget(
-        initialRoute: Routes.dashboardAccount.path,
+      const PreRouterWidget(
+        initialRoute: DashboardAccountRouteData.path,
       ),
     );
   }

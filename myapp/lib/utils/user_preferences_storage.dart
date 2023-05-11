@@ -7,23 +7,18 @@ class UserPreferencesStorage {
     @visibleForTesting this.storage = const FlutterSecureStorage(),
   ]);
 
-  static const String _applicationOverrideLanguageCodeStorageKey =
-      'language.language_code';
-  static const String _applicationOverrideCountryCodeStorageKey =
-      'language.country_code';
+  static const String _applicationOverrideLanguageCodeStorageKey = 'language.language_code';
+  static const String _applicationOverrideCountryCodeStorageKey = 'language.country_code';
   static const String _applicationThemeModeStorageKey = 'theme.mode';
-  static const String _applicationThemeHighContrastStorageKey =
-      'theme.high_contrast';
+  static const String _applicationThemeHighContrastStorageKey = 'theme.high_contrast';
   static const String _applicationAnalyticsStorageKey = 'analytics.enabled';
 
   final FlutterSecureStorage storage;
 
   /// Returns the [Locale] of the application. If the locale is not set, returns `null`.
   Future<Locale?> readApplicationOverrideLocale() async {
-    final String? languageCode =
-        await storage.read(key: _applicationOverrideLanguageCodeStorageKey);
-    final String? countryCode =
-        await storage.read(key: _applicationOverrideCountryCodeStorageKey);
+    final String? languageCode = await storage.read(key: _applicationOverrideLanguageCodeStorageKey);
+    final String? countryCode = await storage.read(key: _applicationOverrideCountryCodeStorageKey);
     if (languageCode == null) {
       return null;
     }
@@ -44,8 +39,7 @@ class UserPreferencesStorage {
 
   /// Returns the [ThemeMode] of the application. If the theme is not set, returns [ThemeMode.system].
   Future<ThemeMode> readApplicationThemeMode() async {
-    final String? themeMode =
-        await storage.read(key: _applicationThemeModeStorageKey);
+    final String? themeMode = await storage.read(key: _applicationThemeModeStorageKey);
 
     switch (themeMode) {
       case 'ThemeMode.system':
@@ -67,8 +61,7 @@ class UserPreferencesStorage {
   }
 
   Future<bool?> readHighContrastEnabled() async {
-    final String? highContrastString =
-        await storage.read(key: _applicationThemeHighContrastStorageKey);
+    final String? highContrastString = await storage.read(key: _applicationThemeHighContrastStorageKey);
     switch (highContrastString) {
       case 'true':
         return true;
@@ -89,8 +82,7 @@ class UserPreferencesStorage {
   }
 
   Future<bool> readCrashlyticsEnabled() async {
-    final String? crashlyticsEnabled =
-        await storage.read(key: _applicationAnalyticsStorageKey);
+    final String? crashlyticsEnabled = await storage.read(key: _applicationAnalyticsStorageKey);
     switch (crashlyticsEnabled) {
       case 'true':
         return true;

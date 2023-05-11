@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 
 final ThemeData lightTheme = ThemeData(
-  appBarTheme: const AppBarTheme(
-    color: Colors.black,
-  ),
   primarySwatch: Colors.grey,
   fontFamily: fontFamily,
   fontFamilyFallback: const ['Roboto'],
@@ -23,9 +20,6 @@ final ThemeData lightTheme = ThemeData(
 );
 
 final ThemeData darkTheme = ThemeData(
-  appBarTheme: const AppBarTheme(
-    color: Colors.white,
-  ),
   primarySwatch: Colors.grey,
   fontFamily: fontFamily,
   fontFamilyFallback: const ['Roboto'],
@@ -45,9 +39,6 @@ final ThemeData darkTheme = ThemeData(
 );
 
 final ThemeData highcontrastLightTheme = ThemeData(
-  appBarTheme: const AppBarTheme(
-    color: Colors.black,
-  ),
   primarySwatch: Colors.grey,
   fontFamily: fontFamily,
   fontFamilyFallback: const ['Roboto'],
@@ -67,9 +58,6 @@ final ThemeData highcontrastLightTheme = ThemeData(
 );
 
 final ThemeData highcontrastDarkTheme = ThemeData(
-  appBarTheme: const AppBarTheme(
-    color: Colors.white,
-  ),
   primarySwatch: Colors.grey,
   fontFamily: fontFamily,
   fontFamilyFallback: const ['Roboto'],

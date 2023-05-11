@@ -1,23 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:myapp/pages/dashboard/dashboard_page.dart';
+import 'package:myapp/pages/loggedIn/oauth_shell_page.dart';
 import 'package:myapp/setup/pre_router_widget.dart';
 
 class DashboardAccountPage extends StatelessWidget {
   const DashboardAccountPage({
-    required this.getPreRouterWidgetState,
     super.key,
   });
-
-  final PreRouterWidgetState? Function(BuildContext) getPreRouterWidgetState;
 
   @override
   Widget build(BuildContext context) {
     // precondition
-    assert(
-      getPreRouterWidgetState(context) != null &&
-          getPreRouterWidgetState(context)!.mounted,
-    );
+    assert(PreRouterWidget.of(context) != null);
 
     // main
     final themes = <Widget>[
@@ -49,17 +43,17 @@ class DashboardAccountPage extends StatelessWidget {
         mainAxisSize: MainAxisSize.max,
         children: [
           const Spacer(flex: 1),
-          Text(
-            "Dashboard Home Page: ${DashboardPage.of(context)!.getCurrentPageIndex}",
+          const Text(
+            "Dashboard Home Page.",
           ),
           const Spacer(flex: 1),
           SwitchListTile(
             controlAffinity: ListTileControlAffinity.leading,
             // This bool value toggles the switch.
-            value: getPreRouterWidgetState(context)!.getCrashlyticsEnabled(),
+            value: PreRouterWidget.of(context)!.getCrashlyticsEnabled(),
             onChanged: (bool value) {
               // This is called when the user toggles the switch.
-              getPreRouterWidgetState(context)!
+              PreRouterWidget.of(context)!
                   .setCrashlyticsEnabled(crashlyticsEnabled: value);
             },
             title: Text(
@@ -73,10 +67,9 @@ class DashboardAccountPage extends StatelessWidget {
           ),
           SwitchListTile(
             controlAffinity: ListTileControlAffinity.leading,
-            value: getPreRouterWidgetState(context)!.getHighContrast(),
+            value: PreRouterWidget.of(context)!.getHighContrast(),
             onChanged: (bool value) {
-              getPreRouterWidgetState(context)!
-                  .setHighContrast(highContrast: value);
+              PreRouterWidget.of(context)!.setHighContrast(highContrast: value);
             },
             title: Text(
               AppLocalizations.of(context)!.account_page_enable_high_contrast,
@@ -96,12 +89,12 @@ class DashboardAccountPage extends StatelessWidget {
               ToggleButtons(
                 borderRadius: const BorderRadius.all(Radius.circular(8)),
                 isSelected: [
-                  getPreRouterWidgetState(context)!.getTheme().index == 0,
-                  getPreRouterWidgetState(context)!.getTheme().index == 1,
-                  getPreRouterWidgetState(context)!.getTheme().index == 2,
+                  PreRouterWidget.of(context)!.getTheme().index == 0,
+                  PreRouterWidget.of(context)!.getTheme().index == 1,
+                  PreRouterWidget.of(context)!.getTheme().index == 2,
                 ],
                 onPressed: (int index) {
-                  getPreRouterWidgetState(context)!.setTheme(
+                  PreRouterWidget.of(context)!.setTheme(
                     index == 0
                         ? ThemeMode.system
                         : index == 1
@@ -112,6 +105,13 @@ class DashboardAccountPage extends StatelessWidget {
                 children: themes,
               ),
             ],
+          ),
+          const Spacer(flex: 1),
+          IconButton(
+            onPressed: () {
+              OAuthShellPage.of(context)!.updateTitle('abc');
+            },
+            icon: const Icon(Icons.abc),
           ),
           const Spacer(flex: 1),
         ],

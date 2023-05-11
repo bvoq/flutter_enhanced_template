@@ -18,7 +18,7 @@ class PreRouterWidget extends StatefulWidget {
   final String initialRoute;
   final Object? initialRouteExtra;
 
-  static PreRouterWidgetState? _of(BuildContext context) =>
+  static PreRouterWidgetState? of(BuildContext context) =>
       context.findAncestorStateOfType<PreRouterWidgetState>();
 
   @override
@@ -53,7 +53,7 @@ class PreRouterWidgetState extends State<PreRouterWidget> {
       widget.initialRoute,
       initialRouteExtra: widget.initialRouteExtra,
       getPreRouterWidgetState: (BuildContext context) =>
-          PreRouterWidget._of(context),
+          PreRouterWidget.of(context),
     );
   }
 

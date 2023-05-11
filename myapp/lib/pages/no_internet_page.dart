@@ -1,6 +1,5 @@
 //import 'package:common_utils_module/uicomponents/loading_progress_indicator_with_potential_error_message.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
 
 class NoInternetPage extends StatefulWidget {
@@ -18,7 +17,7 @@ class NoInternetPage extends StatefulWidget {
 class _NoInternetPageState extends State<NoInternetPage> {
   @override
   Widget build(BuildContext context) {
-    final loadingProgressIndicator = const CircularProgressIndicator();
+    const loadingProgressIndicator = CircularProgressIndicator();
 
     return Scaffold(
       body: Center(

@@ -32,8 +32,8 @@ void main() async {
     stack_trace.Chain.capture(
       () {
         runApp(
-          PreRouterWidget(
-            initialRoute: Routes.dashboardAccount.path,
+          const PreRouterWidget(
+            initialRoute: DashboardAccountRouteData.path,
           ),
         );
       },
@@ -44,8 +44,8 @@ void main() async {
     );
   } else {
     runApp(
-      PreRouterWidget(
-        initialRoute: Routes.dashboardAccount.path,
+      const PreRouterWidget(
+        initialRoute: DashboardAccountRouteData.path,
       ),
     );
   }
@@ -123,6 +123,5 @@ void main() async {
 }
 */
 }
-
 
 //  static AppState? of(BuildContext context) => context.findAncestorStateOfType<AppState>();

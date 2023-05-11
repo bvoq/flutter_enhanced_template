@@ -31,12 +31,12 @@ class FutureWaitingPage<T extends Object> extends StatelessWidget {
         } else if (snapshot.hasError) {
           futureWaitingExtra.onError(snapshot.error, context);
         }
-        return Scaffold(
+        return const Scaffold(
           body: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             mainAxisSize: MainAxisSize.max,
-            children: const [
+            children: [
               Text("Loading ..."),
             ],
           ),
