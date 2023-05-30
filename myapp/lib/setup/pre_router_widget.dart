@@ -1,3 +1,5 @@
+import 'dart:io' show Platform;
+
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -46,8 +48,10 @@ class PreRouterWidgetState extends State<PreRouterWidget> {
         MediaQueryData.fromWindow(WidgetsBinding.instance.window).highContrast;
     _localCrashlytics = true;
 
-    FirebaseCrashlytics.instance
-        .setCrashlyticsCollectionEnabled(_localCrashlytics);
+    if (Platform.isIOS || Platform.isAndroid || Platform.isMacOS) {
+      FirebaseCrashlytics.instance
+          .setCrashlyticsCollectionEnabled(_localCrashlytics);
+    }
 
     _router = setupRouter(
       widget.initialRoute,
@@ -93,9 +97,12 @@ class PreRouterWidgetState extends State<PreRouterWidget> {
     await _userPreferences.storeCrashlyticsEnabled(
       crashlyticsEnabled: crashlyticsEnabled,
     );
-    await FirebaseCrashlytics.instance
-        .setCrashlyticsCollectionEnabled(crashlyticsEnabled);
-    FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterFatalError;
+    if (Platform.isIOS || Platform.isAndroid || Platform.isMacOS) {
+      await FirebaseCrashlytics.instance
+          .setCrashlyticsCollectionEnabled(crashlyticsEnabled);
+      FlutterError.onError =
+          FirebaseCrashlytics.instance.recordFlutterFatalError;
+    }
     setState(() {
       _localCrashlytics = crashlyticsEnabled;
     });
