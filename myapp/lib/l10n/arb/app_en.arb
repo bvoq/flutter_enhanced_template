@@ -7,5 +7,10 @@
     "account_page_theme_dark": "Dark",
     "account_page_theme_description": "Select the app's theme:",
     "account_page_theme_light": "Light",
-    "account_page_theme_system": "System"
+    "account_page_theme_system": "System",
+    "noInternetPage_button_try_again": "Try again",
+    "progressIndicator_attemptConnection": "No connection. Please try to reload and reestablish a connection.",
+    "progressIndicator_longLoadingErrorMessage": "Please make sure the internet is on. Otherwise restart the app if this takes too long.",
+    "progressIndicator_noInternetConnection": "No internet connection",
+    "progressIndicator_noInternetConnectionMessage": "No internet connection. Please reestablish a connection."
 }

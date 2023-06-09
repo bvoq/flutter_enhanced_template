@@ -6,7 +6,7 @@ import 'package:myapp/pages/future_waiting_page.dart';
 import 'package:myapp/pages/loggedIn/dashboard/dashboard_account_page.dart';
 import 'package:myapp/pages/loggedIn/dashboard/dashboard_home_page.dart';
 import 'package:myapp/pages/loggedIn/dashboard/dashboard_page.dart';
-import 'package:myapp/pages/loggedIn/oauth_shell_page.dart';
+import 'package:myapp/pages/loggedIn/login_shell.dart';
 import 'package:myapp/pages/no_internet_page.dart';
 import 'package:myapp/pages/welcome_page.dart';
 import 'package:myapp/setup/pre_router_widget.dart';
@@ -43,8 +43,8 @@ final GlobalKey<NavigatorState> _loggedInShellNavigatorKey =
 
 GoRouter setupRouter(
   String initialLocation, {
-  Object? initialRouteExtra,
   required PreRouterWidgetState? Function(BuildContext) getPreRouterWidgetState,
+  Object? initialRouteExtra,
 }) {
   // See: https://docs.flutter.dev/development/ui/navigation/url-strategies
   usePathUrlStrategy();
@@ -96,28 +96,6 @@ GoRouter setupRouter(
     routes: $appRoutes,
   );
   return router;
-}
-
-@TypedGoRoute<WelcomeRouteData>(
-  path: WelcomeRouteData.path,
-  name: WelcomeRouteData.name,
-)
-class WelcomeRouteData extends GoRouteData {
-  const WelcomeRouteData({required this.environment});
-  static final GlobalKey<NavigatorState> $parentNavigatorKey =
-      _rootNavigatorKey;
-  static const String name = '/welcome';
-  static const String path = '/welcome/:environment';
-
-  final String environment;
-
-  @override
-  Widget build(
-    BuildContext context,
-    GoRouterState state,
-  ) {
-    return const WelcomePage();
-  }
 }
 
 @TypedGoRoute<FutureWaitingRouteData>(
@@ -192,7 +170,51 @@ class NoInternetRouteData extends GoRouteData {
   }
 }
 
-@TypedShellRoute<DashboardOAuthShellRouteData>(
+@TypedShellRoute<LoggedOutShellRouteData>(
+  routes: [
+    TypedGoRoute<WelcomeRouteData>(
+      path: WelcomeRouteData.path,
+      name: WelcomeRouteData.name,
+    ),
+  ],
+)
+class LoggedOutShellRouteData extends ShellRouteData {
+  const LoggedOutShellRouteData();
+  static final GlobalKey<NavigatorState> $navigatorKey =
+      GlobalKey<NavigatorState>();
+
+  @override
+  MaterialPage<void> pageBuilder(
+    BuildContext context,
+    GoRouterState state,
+    Widget navigator,
+  ) {
+    return MaterialPage<void>(
+      key: state.pageKey,
+      child: Container(child: navigator),
+    );
+  }
+}
+
+class WelcomeRouteData extends GoRouteData {
+  const WelcomeRouteData({required this.environment});
+  static final GlobalKey<NavigatorState> $parentNavigatorKey =
+      LoggedOutShellRouteData.$navigatorKey;
+  static const String name = '/welcome';
+  static const String path = '/welcome/:environment';
+
+  final String environment;
+
+  @override
+  Widget build(
+    BuildContext context,
+    GoRouterState state,
+  ) {
+    return const WelcomePage();
+  }
+}
+
+@TypedShellRoute<LoginShellRouteData>(
   routes: [
     TypedShellRoute<DashboardShellRouteData>(
       routes: <TypedRoute<RouteData>>[
@@ -208,8 +230,8 @@ class NoInternetRouteData extends GoRouteData {
     ),
   ],
 )
-class DashboardOAuthShellRouteData extends ShellRouteData {
-  const DashboardOAuthShellRouteData();
+class LoginShellRouteData extends ShellRouteData {
+  const LoginShellRouteData();
   static final GlobalKey<NavigatorState> $navigatorKey =
       GlobalKey<NavigatorState>();
 
@@ -221,8 +243,8 @@ class DashboardOAuthShellRouteData extends ShellRouteData {
   ) {
     return MaterialPage<void>(
       key: state.pageKey,
-      child: OAuthShellPage(
-        child: navigator,
+      child: LoginShell(
+        shellChild: navigator,
       ),
     );
   }

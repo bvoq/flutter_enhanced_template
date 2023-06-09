@@ -60,8 +60,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '586118557892',
     projectId: 'dekeyser-d33a7',
     storageBucket: 'dekeyser-d33a7.appspot.com',
-    iosClientId:
-        '586118557892-k6rhbl9kdfd1lvd777b54hpjamhbbomu.apps.googleusercontent.com',
+    iosClientId: '586118557892-k6rhbl9kdfd1lvd777b54hpjamhbbomu.apps.googleusercontent.com',
     iosBundleId: 'ch.dekeyser.myapp',
   );
 
@@ -71,8 +70,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '586118557892',
     projectId: 'dekeyser-d33a7',
     storageBucket: 'dekeyser-d33a7.appspot.com',
-    iosClientId:
-        '586118557892-k6rhbl9kdfd1lvd777b54hpjamhbbomu.apps.googleusercontent.com',
+    iosClientId: '586118557892-k6rhbl9kdfd1lvd777b54hpjamhbbomu.apps.googleusercontent.com',
     iosBundleId: 'ch.dekeyser.myapp',
   );
 }

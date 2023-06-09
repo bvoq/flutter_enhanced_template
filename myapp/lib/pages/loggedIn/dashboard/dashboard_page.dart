@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:myapp/router.dart';
 
 class DashboardPage extends StatelessWidget {
@@ -35,10 +34,8 @@ class DashboardPage extends StatelessWidget {
     switch (index) {
       case 0:
         const DashboardHomeRouteData().go(context);
-        break;
       case 1:
         const DashboardAccountRouteData().go(context);
-        break;
       default:
     }
   }

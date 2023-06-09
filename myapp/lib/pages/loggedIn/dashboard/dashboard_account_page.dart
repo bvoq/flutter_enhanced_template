@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:myapp/pages/loggedIn/oauth_shell_page.dart';
+import 'package:myapp/pages/loggedIn/login_shell.dart';
 import 'package:myapp/setup/pre_router_widget.dart';
 
 class DashboardAccountPage extends StatelessWidget {
@@ -109,7 +109,7 @@ class DashboardAccountPage extends StatelessWidget {
           const Spacer(flex: 1),
           IconButton(
             onPressed: () {
-              OAuthShellPage.of(context)!.updateTitle('abc');
+              LoginShell.of(context)!.updateTitle('abc');
             },
             icon: const Icon(Icons.abc),
           ),

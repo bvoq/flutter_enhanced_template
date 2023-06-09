@@ -7,35 +7,11 @@ part of 'router.dart';
 // **************************************************************************
 
 List<RouteBase> get $appRoutes => [
-      $welcomeRouteData,
       $futureWaitingRouteData,
       $noInternetRouteData,
-      $dashboardOAuthShellRouteData,
+      $loggedOutShellRouteData,
+      $loginShellRouteData,
     ];
-
-RouteBase get $welcomeRouteData => GoRouteData.$route(
-      path: '/welcome/:environment',
-      name: '/welcome',
-      factory: $WelcomeRouteDataExtension._fromState,
-      parentNavigatorKey: WelcomeRouteData.$parentNavigatorKey,
-    );
-
-extension $WelcomeRouteDataExtension on WelcomeRouteData {
-  static WelcomeRouteData _fromState(GoRouterState state) => WelcomeRouteData(
-        environment: state.pathParameters['environment']!,
-      );
-
-  String get location => GoRouteData.$location(
-        '/welcome/${Uri.encodeComponent(environment)}',
-      );
-
-  void go(BuildContext context) => context.go(location);
-
-  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
-
-  void pushReplacement(BuildContext context) =>
-      context.pushReplacement(location);
-}
 
 RouteBase get $futureWaitingRouteData => GoRouteData.$route(
       path: '/future_waiting',
@@ -91,9 +67,44 @@ extension $NoInternetRouteDataExtension on NoInternetRouteData {
       context.pushReplacement(location);
 }
 
-RouteBase get $dashboardOAuthShellRouteData => ShellRouteData.$route(
-      factory: $DashboardOAuthShellRouteDataExtension._fromState,
-      navigatorKey: DashboardOAuthShellRouteData.$navigatorKey,
+RouteBase get $loggedOutShellRouteData => ShellRouteData.$route(
+      factory: $LoggedOutShellRouteDataExtension._fromState,
+      navigatorKey: LoggedOutShellRouteData.$navigatorKey,
+      routes: [
+        GoRouteData.$route(
+          path: '/welcome/:environment',
+          name: '/welcome',
+          factory: $WelcomeRouteDataExtension._fromState,
+          parentNavigatorKey: WelcomeRouteData.$parentNavigatorKey,
+        ),
+      ],
+    );
+
+extension $LoggedOutShellRouteDataExtension on LoggedOutShellRouteData {
+  static LoggedOutShellRouteData _fromState(GoRouterState state) =>
+      const LoggedOutShellRouteData();
+}
+
+extension $WelcomeRouteDataExtension on WelcomeRouteData {
+  static WelcomeRouteData _fromState(GoRouterState state) => WelcomeRouteData(
+        environment: state.pathParameters['environment']!,
+      );
+
+  String get location => GoRouteData.$location(
+        '/welcome/${Uri.encodeComponent(environment)}',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+}
+
+RouteBase get $loginShellRouteData => ShellRouteData.$route(
+      factory: $LoginShellRouteDataExtension._fromState,
+      navigatorKey: LoginShellRouteData.$navigatorKey,
       routes: [
         ShellRouteData.$route(
           factory: $DashboardShellRouteDataExtension._fromState,
@@ -116,10 +127,9 @@ RouteBase get $dashboardOAuthShellRouteData => ShellRouteData.$route(
       ],
     );
 
-extension $DashboardOAuthShellRouteDataExtension
-    on DashboardOAuthShellRouteData {
-  static DashboardOAuthShellRouteData _fromState(GoRouterState state) =>
-      const DashboardOAuthShellRouteData();
+extension $LoginShellRouteDataExtension on LoginShellRouteData {
+  static LoginShellRouteData _fromState(GoRouterState state) =>
+      const LoginShellRouteData();
 }
 
 extension $DashboardShellRouteDataExtension on DashboardShellRouteData {

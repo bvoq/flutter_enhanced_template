@@ -7,28 +7,31 @@ environment:
   sdk: ">=3.0.0 <4.0.0"
 
 dependencies:
-  firebase_core: ^2.11.0
-  firebase_crashlytics: ^3.2.0
+  firebase_auth: ^4.6.2
+  firebase_core: ^2.13.1
+  firebase_crashlytics: ^3.3.2
   flutter:
     sdk: flutter
   flutter_localizations:
     sdk: flutter
   flutter_secure_storage: ^8.0.0
+  flutter_svg: ^2.0.6
   flutter_web_plugins:
     sdk: flutter
-  go_router: ^7.0.0
+  go_router: ^8.0.0
   internet_connection_checker: ^1.0.0+1
   intl: ^0.18.0
+  lottie: ^2.3.2
   stack_trace: ^1.11.0
 
 dev_dependencies:
-  build_runner: ^2.4.2
-  flutter_flavorizr: ^2.1.5
+  build_runner: ^2.4.5
+  flutter_flavorizr: ^2.2.0
   flutter_test:
     sdk: flutter
-  go_router_builder: ^2.0.1
+  go_router_builder: ^2.1.0
   mocktail: ^0.3.0
-  very_good_analysis: ^3.1.0
+  very_good_analysis: ^5.0.0+1
 
 flutter:
   uses-material-design: true
@@ -38,7 +41,7 @@ flavorizr:
   # Unfortunately, the plugin doesn't support for generating run configurations for Android Studio *and* vscode at the same time.
   ide: "vscode" # or "idea". Change this to your IDE to regenerate the run configurations.
   flavors:
-    stage:
+    staging:
       app:
         name: "myapp STAGE"
         icon: "assets/app_icons/app_icon_clone.png"
@@ -47,7 +50,7 @@ flavorizr:
       ios:
         bundleId: "ch.dekeyser.myapp"
 
-    prod:
+    production:
       app:
         name: "myapp"
         icon: "assets/app_icons/app_icon.png"

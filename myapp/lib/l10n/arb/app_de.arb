@@ -7,5 +7,10 @@
     "account_page_theme_dark": "Dunkelheit",
     "account_page_theme_description": "Wähle das Thema der App aus:",
     "account_page_theme_light": "Licht",
-    "account_page_theme_system": "System"
+    "account_page_theme_system": "System",
+    "noInternetPage_button_try_again": "Nochmal versuchen",
+    "progressIndicator_attemptConnection": "Keine Verbindung. Bitte versuche, neu zu laden und die Verbindung wiederherzustellen.",
+    "progressIndicator_longLoadingErrorMessage": "Bitte stellen Sie sicher, dass das Internet eingeschaltet ist. Andernfalls starten Sie die App neu, wenn dies zu lange dauert.",
+    "progressIndicator_noInternetConnection": "Keine Internetverbindung",
+    "progressIndicator_noInternetConnectionMessage": "Keine Internetverbindung. Bitte stellen Sie die Verbindung wieder her."
 }
